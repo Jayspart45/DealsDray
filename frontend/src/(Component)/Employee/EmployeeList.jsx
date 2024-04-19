@@ -137,7 +137,6 @@ const ButtonComponent = (row) => {
           id: id,
         }
       );
-      console.log(response.data);
       setTableData(response.data.data);
       toast.success(response.data.message);
     } catch (error) {

@@ -43,7 +43,6 @@ const CreateEmployee = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
     const emailError = validateEmail(formData.email);
     if (emailError ) {
       if (emailError) toast.error(emailError);

@@ -39,13 +39,12 @@ export const registerEmployee = asyncHandler(async (req, res) => {
 });
 
 export const updateEmployee = asyncHandler(async (req, res) => {
-  const { name, email, mobile, designation, gender, course } = req.body;
+  const { name, email, mobile, designation, gender, course, id } = req.body;
   if ((!name || !email, !mobile || !designation || !gender || !course)) {
     throw new ApiError(400, "All Fields Must be Provided");
   }
-
-  const updatedEmployee = await Employee.findOneAndUpdate(
-    { email: email },
+  const updatedEmployee = await Employee.findByIdAndUpdate(
+    id,
     {
       $set: {
         name,

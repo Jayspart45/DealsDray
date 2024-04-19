@@ -1,5 +1,4 @@
 import { v2 as cloudinary } from "cloudinary";
-import { error, log } from "console";
 import fs from "fs";
 
 cloudinary.config({
@@ -23,7 +22,6 @@ const uploadOnCloudinary = async (localFilePath) => {
 
 const deleteOnCloudinary = async (cloudinaryPath) => {
   try {
-    console.log(cloudinaryPath);
     await cloudinary.uploader.destroy(
       cloudinaryPath.split("/")[7].split(".")[0],
       function (error, result) {

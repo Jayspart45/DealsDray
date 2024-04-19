@@ -16,6 +16,7 @@ const UpdateEmployee = () => {
     gender: updatedData.gender,
     avatar: updatedData.avatar,
     course: updatedData.course,
+    id: updatedData._id,
   });
   const handleInputChange = (event) => {
     const { name, value, type } = event.target;
@@ -68,7 +69,6 @@ const UpdateEmployee = () => {
       return;
     }
 
-    console.log("Form Data:", formData);
     try {
       const response = await BACKEND_API.post(
         "/api/v1/employee/update_employee",
@@ -83,9 +83,6 @@ const UpdateEmployee = () => {
 
   return (
     <Container className="w-full min-h-screen">
-      {/* <h1 className="font-bold text-4xl py-10 text-zinc-700">
-        Update Employee
-      </h1> */}
       <div className="flex flex-col items-center gap-5">
         <img src={formData.avatar} alt="" className="w-32" />
         <Input
